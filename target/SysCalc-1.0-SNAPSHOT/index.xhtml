@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>TODO supply a title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+    <div id="container" class="header"> 
+        <h:form id="form">   
+            <h:messages>
+                <b:jumbotron transient="SysCalc">
+
+                    <p:panelGrid columns="3" layout="tabular" transient="SysCalc">
+                        <p:column headerText="Valor_X">
+                            <b> valor_x </b> <p:inputText id="valor_x" required="true" value="#{calc.valor_x}" 
+                                                          requiredMessage="favor inserir valor">
+                                                          <f:validateLength minimum="1" maximum="10"/>                     
+                            </p:inputText>
+                        </p:column>
+                        <p:column headerText="Valor_Y">
+                            <b> valor_x </b> <p:inputText id="valor_y" required="true" value="#{calc.valor_y}" 
+                                                          requiredMessage="favor inserir valor">
+                                                          <f:validateLength minimum="1" maximum="10"/>                     
+                            </p:inputText>
+
+                        </p:column>
+                        <p:column headerText="somar"/>
+                        <p:commandButton value='SOMAR' action="#{calc.somar(calc.valor_x, calc.valor_y)}"/>
+                        <br/>
+                        <p:outputLabel value="#{calc.resultado}"/>
+
+                    </p:panelGrid>
+                </b:jumbotron>
+            </h:messages>
+        </h:form>    
+    </div>    
+</body>
+</html>
